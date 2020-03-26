@@ -11,6 +11,7 @@ const cors = require('cors')
 const photos = require('./routes/photos');
 
 //Middlewares
+app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
