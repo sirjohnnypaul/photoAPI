@@ -1,28 +1,16 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const helmet = require('helmet');
-const path = require('path');
-const fs = require('fs');
-const multer = require('multer')
 const app = express();
-const cors = require('cors')
+const bodyParser = require('body-parser');
 
 // Routes
 const photos = require('./routes/photos');
 
-//Middlewares
-app.use(cors({
-  origin: '*'
-}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 
 
 //Routes
-app.get('/',(req,res,next)=>{
-    res.send('Hello');
-})
 app.use('/photos', photos);
 app.use('/*',(req,res,next) => {
     res.json("404 - Not found ;)")

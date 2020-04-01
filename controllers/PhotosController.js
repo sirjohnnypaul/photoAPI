@@ -1,12 +1,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const util = require('util');
-const readdir = util.promisify(fs.readdir);
-const unlink = util.promisify(fs.unlink);
 const File = require('../models/file');
-const rimraf = require("rimraf");
-const fsx = require('fs-extra')
 
 module.exports = {
 
@@ -18,8 +13,6 @@ downloadSingleFile:  (req,res,next) => {
 
 deleteSingleFile: (req,res,next) => {
     const removeDir = path.join(__dirname, '..', 'UploadedFiles')
-    // rimraf(`${removeDir}${req.body.filepath}/*`, function () { res.json({message:`File  was succesfully deleted`}); });
-    //fsx.remove(`${removeDir}${req.body.filepath}/*`, function () { res.json({message:`File  was succesfully deleted`}); });
     fs.unlink(`${removeDir}${req.body.filepath}`, (err) => {
         if (err) {
           console.error(err)

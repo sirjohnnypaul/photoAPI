@@ -3,7 +3,6 @@ const PhotosController = require('../controllers/PhotosController');
 const fs = require('fs');
 const multer = require('multer')
 const path = require('path');
-const util = require('util');
 
 const storage = multer.diskStorage({
     destination: function(req,file,cb){
