@@ -6,7 +6,7 @@ const File = require('../models/file');
 module.exports = {
 
 downloadSingleFile:  (req,res,next) => {
-    const directoryToLook = path.join(__dirname, '..','UploadedFiles',`${req.body.filepath}`)
+    const directoryToLook = path.join(__dirname, '..','UploadedFiles',`${req.query.url}`)
     console.log(directoryToLook);
     res.download(directoryToLook);     
 },
