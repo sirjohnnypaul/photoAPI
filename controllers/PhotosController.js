@@ -3,6 +3,8 @@ const path = require('path');
 const fs = require('fs');
 const File = require('../models/file');
 const spawn = require('child_process').spawn;
+const axios = require("axios");
+const superagent = require('superagent');
 
 module.exports = {
 
@@ -44,10 +46,16 @@ resizeImage: (req,res,next) => {
 },
 
 getRanking: async(req,res) => {
-    axios.get(`https://tradewatch.pl/api/sale/by-item-group?date-from=2020-04-29&date-to=2020-04-30&phrase-include=${req.keyword}&max-fetch-count=50&auth=loremipsummarketing@gmail.com:7a2531eea5884dc7c72b04fc0861541c`,config)
-    .then((response) => {
-        res.json(response.data);
-    })
+  console.log(req.body.link);
+  axios.get(req.body.link)
+  .then(response => {
+    // console.log(response.data.url);
+    // console.log(response.data.explanation);
+    res.json(response.data)
+  })
+  .catch(error => {
+    res.json(error)
+  });
 },
 
  uploadFile: async (req, res, next) => {
