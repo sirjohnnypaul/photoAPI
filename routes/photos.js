@@ -27,4 +27,10 @@ router.route('/files/download')
 router.route('/files/delete')
     .get(PhotosController.deleteSingleFile)
 
+router.route('/photogen')
+    .post(PhotosController.resizeImage)
+
+router.route('/ranking')
+    .post(PhotosController.getRanking)
+
 module.exports = router;
