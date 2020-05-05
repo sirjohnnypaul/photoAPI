@@ -30,7 +30,7 @@ router.route('/files/delete')
 router.route('/photogen')
     .post(PhotosController.resizeImage)
 
-router.route('/ranking/')
+router.route('/ranking')
     .post(PhotosController.getRanking)
 
 module.exports = router;
