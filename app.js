@@ -8,11 +8,11 @@ const photos = require('./routes/photos');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-let corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-app.use(cors(corsOptions));
+// let corsOptions = {
+//     origin: '*',
+//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
+app.use(cors);
 
 //Routes
 app.use('/photos', photos);
