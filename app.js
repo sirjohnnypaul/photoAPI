@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const logger = require('morgan');
-
+const PhotosController = require('./controllers/PhotosController');
 // Routes
 const photos = require('./routes/photos');
 
@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 app.use(logger());
 //Routes
 app.use('/photos', photos);
+app.use('/ranking', PhotosController.getRanking);
 app.use('/*',(req,res,next) => {
     res.json("404 - Not found ;)")
 })
