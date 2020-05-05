@@ -49,8 +49,6 @@ getRanking: async(req,res) => {
   console.log(req.body.link);
   axios.get(req.body.link)
   .then(response => {
-    // console.log(response.data.url);
-    // console.log(response.data.explanation);
     res.json(response.data)
   })
   .catch(error => {
