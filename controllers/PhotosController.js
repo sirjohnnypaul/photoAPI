@@ -46,7 +46,7 @@ resizeImage: (req,res,next) => {
 },
 
 getRanking: async(req,res) => {
-  let link = "https://tradewatch.pl/api/sale/by-item-group?date-from=2020-04-29&date-to=2020-04-30&phrase-include="+req.body.keyword+"&max-fetch-count=50&auth=loremipsummarketing@gmail.com:7a2531eea5884dc7c72b04fc0861541c";
+  let link = await `https://tradewatch.pl/api/sale/by-item-group?date-from=2020-04-29&date-to=2020-04-30&phrase-include=${req.body.keyword}&max-fetch-count=50&auth=loremipsummarketing@gmail.com:7a2531eea5884dc7c72b04fc0861541c`;
   axios.get(link)
   .then(response => {
     res.json(response.data)
