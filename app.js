@@ -16,6 +16,9 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(logger());
 //Routes
+app.use('/', (req,res,next) => {
+    res.send("Hello World!")
+})
 app.use('/photos', photos);
 app.use('/ranking', PhotosController.getRanking);
 app.use('/*',(req,res,next) => {
